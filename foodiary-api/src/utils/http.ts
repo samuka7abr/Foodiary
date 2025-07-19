@@ -27,3 +27,10 @@ export function conflict(body?: Record<string, any>){
     body,
   }
 }
+
+export function unauthorized(body?: Record<string, any>){
+  return {
+    statusCode: 401,
+    body,
+  }
+}
