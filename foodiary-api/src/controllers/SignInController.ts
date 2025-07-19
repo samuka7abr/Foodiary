@@ -6,6 +6,8 @@ import { HttpRequest, HttpResponse } from '../types/Http';
 import { badRequest, ok, unauthorized } from '../utils/http';
 import { z } from 'zod';
 import { compare } from 'bcryptjs'
+import { sign} from 'jsonwebtoken';
+import { signAccessTokenFor } from '../lib/jwt';
 
 const schema = z.object({
   email: z.email(),
@@ -39,8 +41,8 @@ export class SignInController {
       return unauthorized({error: 'invalid credentials'})
     }
 
-    return ok({
-      data,
-    });
+    const accessToken = signAccessTokenFor(user.id);
+
+    return ok({ accessToken });
   }
 }
