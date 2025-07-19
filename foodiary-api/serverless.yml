@@ -6,23 +6,19 @@ service: foodiary-api
 plugins:
   - serverless-offline
 
-
 provider:
   name: aws
   region: us-east-1
   runtime: nodejs22.x
   architecture: arm64
-  
 
 package:
   individually: true
 
-
 build:
   esbuild:
     minify: true
-    sourcemap: false 
-
+    sourcemap: false
 
 functions:
   signin:
@@ -30,11 +26,11 @@ functions:
     events:
       - httpApi:
           path: /signin
-          method: post
+          method: POST
+  
   signup:
     handler: src/functions/signup.handler
     events:
       - httpApi:
           path: /signup
-          method: post
-
+          method: POST
