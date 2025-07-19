@@ -15,6 +15,7 @@ provider:
     DATABASE_URL: ${env:DATABASE_URL}
     JWT_SECRET: ${env:JWT_SECRET}
     BUCKET_NAME: jstack-lab-vum-samuel-abrao-uploads
+    MEALS_QUEUE_URL: !Ref MealsQueue
   iam:
     role: 
       statements:
@@ -22,7 +23,9 @@ provider:
           Action:
             - s3:PutObject
           Resource: !Sub '${UploadsBucket.Arn}/*'
-          
+        - Effect: Allow
+          Action: sqs:SendMessage
+          Resource: !GetAtt MealsQueue.Arn
 package:
   individually: true
 
@@ -77,7 +80,13 @@ functions:
           event: s3:ObjectCreated:*
           existing: true
           forceDeploy: true
-          
+  processMeal:
+    handler: src/functions/processMeal.handler
+    events:
+      - sqs:
+          arn: !GetAtt MealsQueue.Arn
+          batchSize: 1
+
 resources:
   Resources:
     UploadsBucket:
