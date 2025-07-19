@@ -47,5 +47,24 @@ functions:
     handler: src/functions/createMeal.handler
     events:
       - httpApi:
-          path: /meal
+          path: /meals
           method: post
+  listMeals:
+    handler: src/functions/listMeals.handler
+    events:
+      - httpApi:
+          path: /meals
+          method: get
+  getMealById:
+    handler: src/functions/getMealById.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /meals/{mealId}
+
+resources:
+  Resources:
+    UploadsBucket:
+      Type: AWS::S3::Bucket
+    Properties:
+      BucketName: jstack-lab-vum-samuel-abrao-uploads
