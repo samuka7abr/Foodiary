@@ -1,9 +1,9 @@
 
-import { eq, is } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import { db } from '../db';
 import { usersTable } from '../db/schema';
 import { HttpRequest, HttpResponse } from '../types/Http';
-import { badRequest, created, ok, unauthorized } from '../utils/http';
+import { badRequest, ok, unauthorized } from '../utils/http';
 import { z } from 'zod';
 import { compare } from 'bcryptjs'
 
@@ -39,7 +39,7 @@ export class SignInController {
       return unauthorized({error: 'invalid credentials'})
     }
 
-    return created({
+    return ok({
       data,
     });
   }
