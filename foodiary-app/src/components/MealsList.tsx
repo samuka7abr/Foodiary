@@ -86,7 +86,7 @@ export function MealsList() {
       data={meals}
       contentContainerStyle={{ paddingBottom: 80 + bottom + 16 }}
       keyExtractor={meal => meal.id}
-      ListEmptyComponent={<Text>Nenhuma refeição cadastrada...</Text>}
+      ListEmptyComponent={<Text className='ml-auto mr-auto mt-4 color-gray-600'>Nenhuma refeição cadastrada...</Text>}
       ListHeaderComponent={MealsListHeader}
       ItemSeparatorComponent={Separator}
       renderItem={({ item: meal }) => (
