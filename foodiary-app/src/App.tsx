@@ -10,6 +10,7 @@ import { View } from 'react-native';
 
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { DateSwitcher } from './components/DateSwitcher';
 import { HomeHeader } from './components/HomeHeader';
 import './styles/global.css';
 
@@ -37,6 +38,7 @@ export default function App() {
     <View className="flex-1 bg-white">
       <SafeAreaProvider>
         <HomeHeader />
+        <DateSwitcher />
       </SafeAreaProvider>
     </View>
   );

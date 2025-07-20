@@ -5,7 +5,7 @@ import { colors } from '../styles/colors';
 
 export function HomeHeader() {
   return (
-    <View className="bg-lime-400 h-[100px]"> 
+    <View className="bg-lime-400 h-[90px]"> 
       <SafeAreaView className="px-4 flex-row items-center justify-between">
         <View>
           <Text className="text-gray-700 text-sm font-sans-regular">Olá, 👋</Text>
