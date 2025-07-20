@@ -101,7 +101,7 @@ export default function SignUp() {
           </Button>
           
           {isLastStep ? (
-            <Button className="flex-1" onPress={handleNextStep}>
+            <Button className="flex-1 justify-center" onPress={handleNextStep}>
               Criar conta
             </Button>
           ) : (
