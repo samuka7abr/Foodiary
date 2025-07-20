@@ -44,11 +44,11 @@ export default function App() {
         <View className="mt-2">
           <DailyStats
             calories={{
-              current: 500,
+              current: 700,
               goal: 2500,
             }}
             proteins={{
-              current: 2000,
+              current: 600,
               goal: 2500,
             }}
             carbohydrates={{
@@ -56,7 +56,7 @@ export default function App() {
               goal: 2500,
             }}
             fats={{
-              current: 500,
+              current: 400,
               goal: 2500,
             }}
           />
